@@ -1,19 +1,19 @@
-FROM fedora:23
+FROM fedora:25
 
 MAINTAINER NGINX Docker Maintainers "di.xiong@i-md.com"
 
-ENV NGINX_VERSION 1.10.0
+ENV NGINX_VERSION 1.10.2
 
 RUN dnf update -y \
     && dnf install -y git wget cmake make automake gcc tar pcre-devel zlib-devel openssl-devel \
-    && wget http://nginx.org/download/nginx-1.10.0.tar.gz \
-	&& tar -zxvf nginx-1.10.0.tar.gz \
+    && wget http://nginx.org/download/nginx-1.10.2.tar.gz \
+	&& tar -zxvf nginx-1.10.2.tar.gz \
 	&& git clone https://github.com/mdirolf/nginx-gridfs.git \
 	&& cd nginx-gridfs \
 	&& git checkout v0.8 \
 	&& git submodule init \
 	&& git submodule update \
-	&& cd ../nginx-1.10.0 \
+	&& cd ../nginx-1.10.2 \
 	&& ./configure --add-module=../nginx-gridfs/ \
 	&& make \
 	&& make install
