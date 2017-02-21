@@ -1,4 +1,4 @@
-FROM fedora:25
+FROM fedora:24
 
 MAINTAINER NGINX Docker Maintainers "di.xiong@i-md.com"
 
